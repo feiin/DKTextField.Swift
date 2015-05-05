@@ -37,7 +37,7 @@ class DKTextField: UITextField {
         self.beginEditingObserver = NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidBeginEditingNotification, object: nil, queue: nil, usingBlock: {
             [unowned self](note:NSNotification!) in
             
-            if self == note.object as DKTextField && self.secureTextEntry {
+            if self == note.object as! DKTextField && self.secureTextEntry {
                 self.text = ""
                 self.insertText(self.password)
             }
@@ -48,7 +48,7 @@ class DKTextField: UITextField {
         self.endEditingObserver = NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidEndEditingNotification, object: nil, queue: nil, usingBlock: {
             [unowned self](note:NSNotification!) in
             
-            if self == note.object as DKTextField {
+            if self == note.object as! DKTextField {
             
                 self.password = self.text
                 

@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
     @IBAction func switchChanged(sender: AnyObject) {
         
-        self.textField.secureTextEntry = (sender as UISwitch).on
+        self.textField.secureTextEntry = (sender as! UISwitch).on
         
     }
 
