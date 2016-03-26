@@ -10,7 +10,7 @@ import UIKit
 
 class DKTextField: UITextField {
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
        
     }
@@ -50,7 +50,7 @@ class DKTextField: UITextField {
             
             if self == note.object as! DKTextField {
             
-                self.password = self.text
+                self.password = self.text!
                 
             }
             

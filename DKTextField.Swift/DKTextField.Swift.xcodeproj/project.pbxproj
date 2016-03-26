@@ -159,6 +159,8 @@
 		FDF55E281A0670EA0082172F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = swiftmi;
 				TargetAttributes = {
@@ -409,6 +411,7 @@
 				FDF55E511A0670EA0082172F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FDF55E521A0670EA0082172F /* Build configuration list for PBXNativeTarget "DKTextField.SwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +420,7 @@
 				FDF55E541A0670EA0082172F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
