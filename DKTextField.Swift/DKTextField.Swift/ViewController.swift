@@ -22,9 +22,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func switchChanged(sender: AnyObject) {
+    @IBAction func switchChanged(_ sender: AnyObject) {
         
-        self.textField.secureTextEntry = (sender as! UISwitch).on
+        self.textField.isSecureTextEntry = (sender as! UISwitch).isOn
         
     }
 

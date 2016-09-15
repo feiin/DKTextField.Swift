@@ -23,21 +23,21 @@ class DKTextField: UITextField {
     
   
     
-    private var password:String = ""
+    fileprivate var password:String = ""
     
-    private var beginEditingObserver:AnyObject!
+    fileprivate var beginEditingObserver:AnyObject!
     
-    private var endEditingObserver:AnyObject!
+    fileprivate var endEditingObserver:AnyObject!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
       //  unowned var that=self
         
-        self.beginEditingObserver = NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidBeginEditingNotification, object: nil, queue: nil, usingBlock: {
-            [unowned self](note:NSNotification!) in
+        self.beginEditingObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidBeginEditing, object: nil, queue: nil, using: {
+            [unowned self](note:Notification!) in
             
-            if self == note.object as! DKTextField && self.secureTextEntry {
+            if self == note.object as! DKTextField && self.isSecureTextEntry {
                 self.text = ""
                 self.insertText(self.password)
             }
@@ -45,8 +45,8 @@ class DKTextField: UITextField {
             
         })
         
-        self.endEditingObserver = NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidEndEditingNotification, object: nil, queue: nil, usingBlock: {
-            [unowned self](note:NSNotification!) in
+        self.endEditingObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidEndEditing, object: nil, queue: nil, using: {
+            [unowned self](note:Notification!) in
             
             if self == note.object as! DKTextField {
             
@@ -62,17 +62,17 @@ class DKTextField: UITextField {
     
     deinit{
         
-        NSNotificationCenter.defaultCenter().removeObserver(self.beginEditingObserver)
-        NSNotificationCenter.defaultCenter().removeObserver(self.endEditingObserver)
+        NotificationCenter.default.removeObserver(self.beginEditingObserver)
+        NotificationCenter.default.removeObserver(self.endEditingObserver)
     }
   
-    override var secureTextEntry: Bool{
+    override var isSecureTextEntry: Bool{
         get {
-            return super.secureTextEntry
+            return super.isSecureTextEntry
         }
         set{
             self.resignFirstResponder()
-            super.secureTextEntry = newValue
+            super.isSecureTextEntry = newValue
             self.becomeFirstResponder()
         }
     }
